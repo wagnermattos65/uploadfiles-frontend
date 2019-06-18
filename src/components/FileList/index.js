@@ -2,41 +2,50 @@ import React from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { MdCheckCircle, MdError, MdLink, MdDeleteForever } from 'react-icons/md';
 
-import { Container, FileInfo, Preview } from './styles';
+import { Container, FileInfo, Preview, UploadInfo } from './styles';
 
-const FileList = () =>(
+const FileList = ({ files }) =>(
   <Container>
-    <li>
-    <FileInfo>
-        <Preview src="https://wgnr8uploadfiles.s3.amazonaws.com/ba91512bde4cc2afcae790c01d0f6b7e-PORSCHE-911-Carrera-S--FT.jpg" />
-        <div>
-          <strong>arquivo.png</strong>
-          <span>64kb </span>
-        </div>
-        <div>
-          <button onClick={() => {}}><MdDeleteForever size={30} color="#db0000" /></button>
-        </div>
-      </FileInfo>
+    {files.map(uploadedFile => (
+      <li key={uploadedFile.id}>
+      <FileInfo>
+          <Preview src={uploadedFile.preview} />
+          <div>
+            <strong>{uploadedFile.name}</strong>
+            <span>{uploadedFile.readbleSize}</span>
+          </div>
+        </FileInfo>
 
-      <div>
-        <CircularProgressbar
-          value={60}
-          styles={{
-            root: { width: 24 },
-            path: { stroke: '#FA552F' }
-          }}
-          strokeWidth={10}
-        />
+        <UploadInfo>
+          {!uploadedFile.uploaded && !uploadedFile.error && (
+              <CircularProgressbar
+                value={uploadedFile.progress}
+                styles={{
+                  root: { width: 24 },
+                  path: { stroke: '#FA552F' }
+                }}
+                strokeWidth={10}
+              />
+            )}
 
-        <a href="https://wgnr8uploadfiles.s3.amazonaws.com/ba91512bde4cc2afcae790c01d0f6b7e-PORSCHE-911-Carrera-S--FT.jpg"
-        target="_blank"
-        rel="noopener noreferrer">
-          <MdLink style={{marginRight: 8}} size={24} color="#222" /> 
-        </a>
-        <MdCheckCircle size={24} color="#78e5d5" />
-        <MdError size={24} color="#e57878" />
-      </div>
-    </li>
+            { !!uploadedFile.url && (<button onClick={() => {}}><MdDeleteForever size={24} color="#db0000" /></button>)}
+
+            {uploadedFile.url && (
+              <a href="https://wgnr8uploadfiles.s3.amazonaws.com/ba91512bde4cc2afcae790c01d0f6b7e-PORSCHE-911-Carrera-S--FT.jpg"
+                target="_blank"
+                rel="noopener noreferrer">
+                <MdLink style={{marginRight: 8}} size={24} color="#222" /> 
+              </a>
+
+            )}
+
+            { uploadedFile.uploaded && (<MdCheckCircle size={24} color="#78e5d5" />)}
+            { uploadedFile.error && (<MdError size={24} color="#e57878" />)}
+
+
+        </UploadInfo>
+      </li>
+    ))}
   </Container>
 );
 

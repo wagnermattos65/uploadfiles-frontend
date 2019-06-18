@@ -12,6 +12,14 @@ export const Container = styled.ul`
       margin-top: 15px;
     }
   }
+  button {
+        border: 0;
+        background: transparent;
+        color: #e57878;
+        margin-left: 5px;
+        cursor: pointer;
+     }  
+
 `;
 
 export const FileInfo = styled.div`
@@ -28,14 +36,8 @@ export const FileInfo = styled.div`
       margin-top: 0px;
     }
 
-    button {
-        border: 0;
-        background: transparent;
-        color: #e57878;
-        margin-left: 5px;
-        cursor: pointer;
-     }
   }
+
 `;
 
 export const Preview = styled.div`
@@ -47,5 +49,12 @@ export const Preview = styled.div`
   background-size: cover;
   background-position: 50% 50%;
   margin-right: 10px;
+`;
+
+export const UploadInfo = styled.div`
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+  width: 90px;
 `;
 
