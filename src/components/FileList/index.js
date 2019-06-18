@@ -31,7 +31,7 @@ const FileList = ({ files, onDelete }) =>(
             { !!uploadedFile.url && (<button onClick={() => onDelete(uploadedFile.id)}><MdDeleteForever size={24} color="#db0000" /></button>)}
 
             {uploadedFile.url && (
-              <a href="https://wgnr8uploadfiles.s3.amazonaws.com/ba91512bde4cc2afcae790c01d0f6b7e-PORSCHE-911-Carrera-S--FT.jpg"
+              <a href={uploadedFile.url}
                 target="_blank"
                 rel="noopener noreferrer">
                 <MdLink style={{marginRight: 8}} size={24} color="#222" /> 
