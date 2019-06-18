@@ -1,6 +1,6 @@
 import React from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { MdCheckCircle, MdError, MdLink } from 'react-icons/md';
+import { MdCheckCircle, MdError, MdLink, MdDeleteForever } from 'react-icons/md';
 
 import { Container, FileInfo, Preview } from './styles';
 
@@ -11,7 +11,10 @@ const FileList = () =>(
         <Preview src="https://wgnr8uploadfiles.s3.amazonaws.com/ba91512bde4cc2afcae790c01d0f6b7e-PORSCHE-911-Carrera-S--FT.jpg" />
         <div>
           <strong>arquivo.png</strong>
-          <span>64kb <button onClick={() => {}}>Excluir</button></span>
+          <span>64kb </span>
+        </div>
+        <div>
+          <button onClick={() => {}}><MdDeleteForever size={30} color="#db0000" /></button>
         </div>
       </FileInfo>
 

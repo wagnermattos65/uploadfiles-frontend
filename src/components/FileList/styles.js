@@ -25,22 +25,22 @@ export const FileInfo = styled.div`
     span {
       font-size: 12px;
       color: #999;
-      margin-top: 5px;
+      margin-top: 0px;
+    }
 
-      button {
+    button {
         border: 0;
         background: transparent;
         color: #e57878;
         margin-left: 5px;
         cursor: pointer;
      }
-    }
   }
 `;
 
 export const Preview = styled.div`
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 5px;
   background-image: url(${props => props.src});
   background-repeat: no-repeat;
