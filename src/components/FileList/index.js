@@ -4,7 +4,7 @@ import { MdCheckCircle, MdError, MdLink, MdDeleteForever } from 'react-icons/md'
 
 import { Container, FileInfo, Preview, UploadInfo } from './styles';
 
-const FileList = ({ files }) =>(
+const FileList = ({ files, onDelete }) =>(
   <Container>
     {files.map(uploadedFile => (
       <li key={uploadedFile.id}>
@@ -28,7 +28,7 @@ const FileList = ({ files }) =>(
               />
             )}
 
-            { !!uploadedFile.url && (<button onClick={() => {}}><MdDeleteForever size={24} color="#db0000" /></button>)}
+            { !!uploadedFile.url && (<button onClick={() => onDelete(uploadedFile.id)}><MdDeleteForever size={24} color="#db0000" /></button>)}
 
             {uploadedFile.url && (
               <a href="https://wgnr8uploadfiles.s3.amazonaws.com/ba91512bde4cc2afcae790c01d0f6b7e-PORSCHE-911-Carrera-S--FT.jpg"
