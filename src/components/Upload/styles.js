@@ -19,7 +19,7 @@ export const DropContainer = styled.div.attrs({
   border: 1px solid #ddd;
   border-radius: 4px;
   cursor: pointer;
-  height: 250px;;
+  height: 100px;;
   
   transition: height 0.2s ease;
 
@@ -37,5 +37,5 @@ export const UploadMessage = styled.p`
   color: ${props => messageColors[props.type || 'default']};
   justify-content: center;
   align-items: center;
-  padding: 50px 0;
+  padding: 30px 75px;
 `;
