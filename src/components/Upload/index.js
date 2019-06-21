@@ -7,7 +7,7 @@ import { DropContainer, UploadMessage } from './styles';
 export default class Upload extends Component {
   renderDragMessage = ( isDragActive, isDragReject ) => {
     if (!isDragActive) {
-      return <UploadMessage>Arraste as imagens ou clique aqui para escolher os arquivos...</UploadMessage>
+      return <UploadMessage>Arraste as imagens ou clique aqui para escolher os arquivos...(Tamanho máximo: 2 Megabites)</UploadMessage>
     }
 
     if (isDragReject) {
